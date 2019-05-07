@@ -25,7 +25,7 @@ class DefaultController extends Controller
     {
         $is = $this->get('security.token_storage')->getToken()->getRoles();
         if(!empty($is[0])) {
-            if ($is[0]->getRole() === "isGestionnaire") {
+            if ($is[0]->getRole() === "ROLE_GESTIONNAIRE") {
                 return $this->forward('JmBatiInterimBundle:Gestionnaire:index');
             } else if ($is[0]->getRole() === "isArtisan") {
                 return $this->forward('JmBatiInterimBundle:Artisan:accueil');
@@ -52,12 +52,12 @@ class DefaultController extends Controller
             // on verifie que ce n'est pas le gestionnaire qui se connecte
             if ($login === 'admin' && $mdp === 'azerty') {
                 // créer la session
-                $token = new UsernamePasswordToken($login, $mdp, 'main', array('isGestionnaire'));
+                $token = new UsernamePasswordToken($login, $mdp, 'main', array('ROLE_GESTIONNAIRE'));
                 $this->get('security.token_storage')->setToken($token);
                 $event = new InteractiveLoginEvent($request, $token);
                 $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
                 // pour récuprer son nom : $this->get('security.token_storage')->getToken()->getUser()
-                return $this->forward('JmBatiInterimBundle:Gestionnaire:accueil');
+                return $this->forward('JmBatiInterimBundle:Gestionnaire:index');
             } else if ($login === 'admin' && $mdp !== 'azerty') {
                 // retourner une erreur mdp
                 $this->addFlash(

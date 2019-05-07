@@ -17,10 +17,10 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use BatInterimBundle\Entity\Corpsmetier;
-use BatInterimBundle\Entity\Artisan;
-use BatInterimBundle\Entity\Entrepreneur;
-use BatInterimBundle\Form\CorpsmetierType;
+use JmBatiInterimBundle\Entity\Corpsmetier;
+use JmBatiInterimBundle\Entity\Artisan;
+use JmBatiInterimBundle\Entity\Entrepreneur;
+use JmBatiInterimBundle\Form\CorpsmetierType;
 
 
 

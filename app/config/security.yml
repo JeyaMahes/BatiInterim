@@ -2,9 +2,9 @@
 # http://symfony.com/doc/current/security.html
 security:
     access_control:
-        - { path: ^/gestionnaire, roles: isGestionnaire }
+        - { path: ^/gestionnaire, roles: ROLE_GESTIONNAIRE }
         - { path: ^/artisan, roles: isArtisan   }
-        - { path: ^/entrepreneur, roles: isArtisan }
+        - { path: ^/entrepreneur, roles: isEntrepreneur }
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:

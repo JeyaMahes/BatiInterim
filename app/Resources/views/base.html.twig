@@ -11,49 +11,13 @@
     </head>
     
     <body>
-       <!-- <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="{{ path( 'bat_interim_homepage') }}">
-                <img src="{{ asset('bundles/jmbatiinterim/images/logo.jpg') }}" title="Bati Interim" width="50" height="100">
-              </a>
-
-              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-
-            <div id="navbar" class="navbar-menu">
-                <div class="navbar-start">
-                  <a href="{{ path( 'bat_interim_gestionnaire') }}" class="navbar-item">
-                    Gestionnaire
-                  </a>
-
-                  <a href="{{ path( 'bat_interim_artisan') }}" class="navbar-item">
-                    Artisan
-                  </a>
-                    
-                  <a href="{{ path( 'bat_interim_entrepreneur') }}" class="navbar-item">
-                    Entrepreneur
-                  </a>
-                </div>
-
-                <div class="navbar-end">
-                  <div class="navbar-item">
-                    <div class="buttons">
-                      <a href="{{ path( 'bat_interim_logout') }}" class="button is-primary">
-                        Deconnexion
-                      </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        </nav> -->
        
+       
+            <div class="ui segment">
+  <img class="ui centered medium image" src="{{ asset('bundles/jmbatiinterim/images/logo.jpg') }}"/>
             <div class="ui fluid two item menu">
               
-              <a class="item"{% block lien %}{% endblock %}>Menu</a>
+              <a class="item" href="{{path( 'bat_interim_homepage')}}">Menu</a>
               <a class="item" href="{{ path( 'bat_interim_logout') }}">Deconnexion</a>
             </div>
         <section class="section">
