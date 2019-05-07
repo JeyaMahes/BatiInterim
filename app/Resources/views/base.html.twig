@@ -23,9 +23,14 @@
         <section class="section">
             <div class="container">
                 <div id="content">
+                    <br/>
+                     <div class="ui horizontal divider">
                     {% block body %}{% endblock %}
+                    <br/>
+                </div>
                 </div>
             </div>
+                    <div class="ui horizontal divider">
             <footer class="footer">
                 <div class="content has-text-centered">
                     {% block footer %}
@@ -34,6 +39,7 @@
                     {% endblock %}
                 </p>
             </footer>
+        </div>
         </section>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
