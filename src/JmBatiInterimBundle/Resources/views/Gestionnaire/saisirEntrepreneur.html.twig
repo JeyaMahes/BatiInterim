@@ -1,0 +1,111 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Saisie entrepreneur
+{% endblock %}
+
+{% block body %}
+    <h1 class="title is-1 has-text-centered">Nouvel entrepreneur</h1>
+    <h2 class="subtitle is-4 has-text-centered">Veuillez effectuer votre saisie...</h2>
+    {{ form_start(form) }}
+        {% block form_row %}
+            <div style="width: 400px; margin:auto;" class="box">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            <button class="delete"></button>
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="field">
+                    {{ form_label(form.raisonSociale, 'Raison sociale', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.raisonSociale, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.raisonSociale, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.nomResponsable, 'Nom responsable', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.nomResponsable, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.nomResponsable, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.prenomResponsable, 'Prenom responsable', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.prenomResponsable, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.prenomResponsable, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.telResponsable, 'Telephone du responsable', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.telResponsable, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.telResponsable, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.telephoneEntreprise, 'Téléphone de l\'entreprise', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.telephoneEntreprise, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.telephoneEntreprise, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.adresseEntreprise, 'Adresse de l\'entreprise', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.adresseEntreprise, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.adresseEntreprise, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.villeEntreprise, "Ville de l\'entreprise", {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.villeEntreprise, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.villeEntreprise, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.cpEntreprise, 'Code postale', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.cpEntreprise, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.cpEntreprise, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+                
+                <div class="columns">
+                    <div class="column field is-grouped">
+                        <div class="control has-text-centered"> 
+                            {{ form_widget(form.valider, {'attr': {'class': 'button is-primary'} }) }}
+                        </div>
+                        <div class="control has-text-centered">
+                            {{ form_widget(form.annuler, {'attr': {'class': 'button is-light'} }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {{ form_end(form) }}
+    <div>
+        <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        $notification = $delete.parentNode;
+        $delete.addEventListener('click', () => {
+          $notification.parentNode.removeChild($notification);
+        });
+      });
+    });
+    </script>
+{% endblock %}

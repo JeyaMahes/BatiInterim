@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Accueil Gestionnaire
+{% endblock %}
+
+{% block body %}
+    <h1 class="title is-1">Espace du Gestionnaire</h1>
+     
+     <h2 class="title is-3">Artisan</h2>
+    <div class="ui compact labeled icon menu">
+        <a class="item"<a href="{{ path( 'bat_interim_gestionnaire_saisirartisan') }}">
+         <i class="plus square icon"></i>
+          Saisir Artisan
+        </a>
+        <a class="item" <a href="{{ path( 'bat_interim_gestionnaire_supprimerartisan') }}">
+          <i class="trash alternate icon"></i>
+          Supprimer Artisan
+        </a>
+     
+    </div>
+    
+    
+    <h2 class="title is-3">Entrepreneur</h2>
+    <div class="ui compact labeled icon menu">
+        <a class="item"<a href="{{ path( 'bat_interim_gestionnaire_saisirentrepreneur') }}">
+         <i class="plus square icon"></i>
+          Saisir nouvel entrepreneur
+        </a>
+        <a class="item" <a href="{{ path( 'bat_interim_gestionnaire_supprimerentrepreneur') }}">
+          <i class="trash alternate icon"></i>
+          Supprimer fiche entrepreneur
+        </a>
+     
+    </div>              
+    
+    <h2 class="title is-3">Gestion courante</h2>
+    <div class="field is-grouped">
+        <p class="control">    
+            <a href="{{ path( 'bat_interim_gestionnaire_creercorpsmetier') }}" class="button is-primary">Créer corps métier</a>
+            <a href="#" class="button is-primary">Non défini</a>
+        </p>
+    </div>    
+{% endblock %}

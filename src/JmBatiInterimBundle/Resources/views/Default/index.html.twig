@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Se connecter
+{% endblock %}
+
+{% block body %}
+    <h1 class="title is-1 has-text-centered">Se connecter</h1>
+    <h2 class="subtitle is-4 has-text-centered">Veuillez vous connecter pour continuer...</h2>
+    {{ form_start(form) }}
+        {% block form_row %}
+            <div style="width: 400px; margin:auto;" class="box">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            <button class="delete"></button>
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="field">
+                    {{ form_label(form.login, 'Identifiant', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.login, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.login, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.motDePasse, 'Mot de passe', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.motDePasse, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.motDePasse, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+                
+                <div class="field is-grouped">
+                    <div class="control"> 
+                        {{ form_widget(form.Valider, {'attr': {'class': 'button is-primary'} }) }}
+                    </div>
+                    <div class="control">
+                        {{ form_widget(form.annuler, {'attr': {'class': 'button is-light'} }) }}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {{ form_end(form) }}
+{% endblock %}

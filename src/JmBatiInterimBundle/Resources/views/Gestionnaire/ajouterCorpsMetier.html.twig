@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Ajouter un corps métier
+{% endblock %}
+
+{% block body %}
+    <h1 class="title is-1 has-text-centered">Corps métier</h1>
+    <h2 class="subtitle is-4 has-text-centered">Veuillez ajouter votre corps métier...</h2>
+    {{ form_start(form) }}
+        {% block form_row %}
+            <div style="width: 400px; margin:auto;" class="box">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            <button class="delete"></button>
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="field">
+                    {{ form_label(form.libelleCorpsMetier, 'Nom', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.libelleCorpsMetier, {'attr': {'class': 'input'} }) }}
+                    </div>
+                {{ form_errors(form.libelleCorpsMetier, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field">
+                    {{ form_label(form.idSecteur, 'Corps métier', {'label_attr': {'class': 'label'} }) }}
+                    <div class="control"> 
+                        {{ form_widget(form.idSecteur, {'attr': {'class': 'select'} }) }}
+                    </div>
+                {{ form_errors(form.idSecteur, {'attr': {'class': 'help is-danger'} }) }}
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control"> 
+                        {{ form_widget(form.valider, {'attr': {'class': 'button is-primary'} }) }}
+                    </div>
+                    <div class="control">
+                        {{ form_widget(form.annuler, {'attr': {'class': 'button is-light'} }) }}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {{ form_end(form) }}
+    <div>
+        <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>
+    </div>
+{% endblock %}

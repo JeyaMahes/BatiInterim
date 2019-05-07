@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Accueil Entrepreneur
+{% endblock %}
+
+{% block body %}
+    <h1 class="title is-1">Espace de l'entrepreneur</h1>
+        
+    <h2 class="title is-3">Consulter</h2>
+    <div class="field is-grouped">
+        <p class="control">
+            <a href="{{ path( 'bat_interim_gestionnaire_saisirartisan') }}" class="button is-primary">Consulter ouvriers présents/absents</a>
+            <a href="{{ path( 'bat_interim_gestionnaire_supprimerartisan') }}" class="button is-primary">Consulter jours de congés</a>
+            <a href="{{ path( 'bat_interim_gestionnaire_supprimerartisan') }}" class="button is-primary">Consulter affectations</a>
+            <a href="{{ path( 'bat_interim_gestionnaire_supprimerartisan') }}" class="button is-primary">Lister artisans</a>
+        </p>
+    </div>
+    <h2 class="title is-3">Créer</h2>
+    <div class="field is-grouped">
+        <p class="control">    
+            <a href="{{ path( 'bat_interim_gestionnaire_saisirentrepreneur') }}" class="button is-primary">Créer un chantier</a>
+            <a href="{{ path( 'bat_interim_gestionnaire_supprimerentrepreneur') }}" class="button is-primary">Créer missions</a>
+        </p>
+    </div>
+    <h2 class="title is-3">Affecter</h2>
+    <div class="field is-grouped">
+        <p class="control">    
+            <a href="{{ path( 'bat_interim_gestionnaire_creercorpsmetier') }}" class="button is-primary">Affecter artisans</a>
+            <a href="#" class="button is-primary">Non défini</a>
+        </p>
+    </div>    
+{% endblock %}

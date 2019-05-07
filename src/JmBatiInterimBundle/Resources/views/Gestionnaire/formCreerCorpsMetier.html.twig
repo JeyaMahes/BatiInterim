@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Créer Corps Metier
+{% endblock %}
+{% block body %}
+    <h2>Créer un Artisan</h2>
+    {{ form(form) }}
+    
+    <p><a href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a></p>
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='fr'>
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="{{ asset('bundles/jmbatiinterim/css/styles.css') }}" type="text/css" />
+            <script src="{{ asset('bundles/jmbatiinterim/js/function.js') }}"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" type="text/css" />
+            <title>BatiInterim – {% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
+    
+    <body>
+       <!-- <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="{{ path( 'bat_interim_homepage') }}">
+                <img src="{{ asset('bundles/jmbatiinterim/images/logo.jpg') }}" title="Bati Interim" width="50" height="100">
+              </a>
+
+              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div id="navbar" class="navbar-menu">
+                <div class="navbar-start">
+                  <a href="{{ path( 'bat_interim_gestionnaire') }}" class="navbar-item">
+                    Gestionnaire
+                  </a>
+
+                  <a href="{{ path( 'bat_interim_artisan') }}" class="navbar-item">
+                    Artisan
+                  </a>
+                    
+                  <a href="{{ path( 'bat_interim_entrepreneur') }}" class="navbar-item">
+                    Entrepreneur
+                  </a>
+                </div>
+
+                <div class="navbar-end">
+                  <div class="navbar-item">
+                    <div class="buttons">
+                      <a href="{{ path( 'bat_interim_logout') }}" class="button is-primary">
+                        Deconnexion
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </nav> -->
+       
+            <div class="ui fluid two item menu">
+              
+              <a class="item"{% block lien %}{% endblock %}>Menu</a>
+              <a class="item" href="{{ path( 'bat_interim_logout') }}">Deconnexion</a>
+            </div>
+        <section class="section">
+            <div class="container">
+                <div id="content">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    {% block footer %}
+                        <p>{{ 'now'|date('d - m -Y') }}</p>
+                        <p>&copy; Copyright 2019 by Jeya Mahesananthan</p>
+                    {% endblock %}
+                </p>
+            </footer>
+        </section>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                    $notification = $delete.parentNode;
+                    $delete.addEventListener('click', () => {
+                      $notification.parentNode.removeChild($notification);
+                    });
+                  });
+                });
+            </script>
+    </body>
+</html>

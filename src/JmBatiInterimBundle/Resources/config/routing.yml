@@ -1,0 +1,43 @@
+bat_interim_homepage:
+    path:     /accueil
+    defaults: { _controller: JmBatiInterimBundle:Default:accueil }
+
+bat_interim_gestionnaire:
+    path:     /gestionnaire
+    defaults: { _controller: JmBatiInterimBundle:Default:index }
+    
+bat_interim_artisan:
+    path:     /artisan
+    defaults: { _controller: JmBatiInterimBundle:Default:accueilArtisan }
+    
+bat_interim_entrepreneur:
+    path:     /entrepreneur
+    defaults: { _controller: JmBatiInterimBundle:Default:accueilEntrepreneur }
+    
+entrepreneur_accueil:
+    path:     accueil/entrepreneur
+    defaults: { _controller: JmBatiInterimBundle:Entrepreneur:index }
+    
+bat_interim_gestionnaire_saisirartisan:
+    path:     /gestionnaire/saisirartisan
+    defaults: { _controller: JmBatiInterimBundle:Gestionnaire:saisirArtisan }
+    
+bat_interim_gestionnaire_supprimerartisan:
+    path:     /gestionnaire/supprimerartisan/{id}
+    defaults: { _controller: JmBatiInterimBundle:Gestionnaire:supprimerArtisan, id: null }
+    
+bat_interim_gestionnaire_saisirentrepreneur:
+    path:     /gestionnaire/saisirentrepreneur
+    defaults: { _controller: JmBatiInterimBundle:Gestionnaire:saisirEntrepreneur }
+    
+bat_interim_gestionnaire_supprimerentrepreneur:
+    path:     /gestionnaire/supprimerentrepreneur/{id}
+    defaults: { _controller: JmBatiInterimBundle:Gestionnaire:supprimerEntrepreneur, id: null }
+    
+bat_interim_gestionnaire_creercorpsmetier:
+    path: /gestionnaire/formcorpsmetier
+    defaults: { _controller: JmBatiInterimBundle:Gestionnaire:ajouterCorpsMetier }
+    
+bat_interim_logout:
+    path: /logout
+    defaults: { _controller: JmBatiInterimBundle:Default:logout }

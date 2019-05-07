@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Supprimer entrepreneur
+{% endblock %}
+{% block body %}
+    <h1 class="title is-1 has-text-centered">Suppression d'entrepreneur</h1>
+    <h2 class="subtitle is-4 has-text-centered">Veuillez effectuer selectionner un entrepreneur à supprimer...</h2>
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="notification is-{{ label }}">
+                <button class="delete"></button>
+                {{ flash }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <table class="table is-fullwidth is-bordered is-striped is-narrow is-hoverable">
+        <thead>
+        <tr>
+            <th>Raison sociale</th>
+            <th>Nom du résponsable</th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for unEntrepreneur in entrepreneur %}
+                <tr>
+                    <td>
+                        {{ unEntrepreneur.raisonSociale }}
+                    </td>
+                    <td>
+                        {{ unEntrepreneur.nomresponsable}}
+                    </td>
+                    <td class="has-text-centered">
+                        <a class="button is-danger" href="{{ path('bat_interim_gestionnaire_supprimerentrepreneur',{'id': unEntrepreneur.id})}}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+      </tbody>
+    </table>
+    <br/>
+    <div>
+        <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    access_control:
+        - { path: ^/gestionnaire, roles: isGestionnaire }
+        - { path: ^/artisan, roles: isArtisan   }
+        - { path: ^/entrepreneur, roles: isArtisan }
+
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: ~
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern: ^/
+            anonymous: true
+            http_basic: ~
+            form_login:
+                login_path: bat_interim_homepage
+            logout:
+                path: bat_interim_logout
+                target: bat_interim_homepage
