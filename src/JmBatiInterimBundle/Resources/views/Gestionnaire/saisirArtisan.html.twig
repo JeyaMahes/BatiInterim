@@ -10,14 +10,7 @@ Saisie artisan
     {{ form_start(form) }}
         {% block form_row %}
             <div style="width: 400px; margin:auto;" class="box">
-                {% for label, flashes in app.session.flashbag.all %}
-                    {% for flash in flashes %}
-                        <div class="notification is-{{ label }}">
-                            <button class="delete"></button>
-                            {{ flash }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
+                
                 <div class="field">
                     {{ form_label(form.nomArtisan, 'Nom', {'label_attr': {'class': 'label'} }) }}
                     <div class="control"> 
@@ -108,6 +101,15 @@ Saisie artisan
                 </div>
             </div>
         {% endblock %}
+        
+        {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+        {% endfor %}
     {{ form_end(form) }}
     <div>
         <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>

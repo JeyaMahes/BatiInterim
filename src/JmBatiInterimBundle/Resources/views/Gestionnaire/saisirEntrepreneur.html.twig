@@ -6,18 +6,11 @@ Saisie entrepreneur
 
 {% block body %}
     <h1 class="title is-1 has-text-centered">Nouvel entrepreneur</h1>
-    <h2 class="subtitle is-4 has-text-centered">Veuillez effectuer votre saisie...</h2>
+    
     {{ form_start(form) }}
         {% block form_row %}
             <div style="width: 400px; margin:auto;" class="box">
-                {% for label, flashes in app.session.flashbag.all %}
-                    {% for flash in flashes %}
-                        <div class="notification is-{{ label }}">
-                            <button class="delete"></button>
-                            {{ flash }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
+                
                 <div class="field">
                     {{ form_label(form.raisonSociale, 'Raison sociale', {'label_attr': {'class': 'label'} }) }}
                     <div class="control"> 
@@ -93,11 +86,17 @@ Saisie entrepreneur
                     </div>
                 </div>
             </div>
+                        {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
         {% endblock %}
     {{ form_end(form) }}
-    <div>
-        <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>
-    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {

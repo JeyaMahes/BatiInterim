@@ -33,8 +33,8 @@ class GestionnaireController extends Controller {
     
     public function saisirArtisanAction(Request $request)
     {
-        $repository_corpsmetier = $this->getDoctrine()->getManager()->getRepository('JmBatiInterimBundle:Corpsmetier');
-        $corpsmetiers = $repository_corpsmetier->findAll();
+        $rcm = $this->getDoctrine()->getManager()->getRepository('JmBatiInterimBundle:Corpsmetier');
+        $corpsmetiers = $rcm->findAll();
        
         $artisan = new Artisan();
         $form = $this->createFormBuilder($artisan)
@@ -64,6 +64,7 @@ class GestionnaireController extends Controller {
             $artisan->setPaysNaissanceArtisan($form->get('paysNaissanceArtisan')->getData());
             $artisan->setPremiereconnexion(0);
             $artisan->setIdcorpsmetier($form->get('idcorpsmetier')->getData());
+            $artisan->setIsdeleted(0);
             $nom = $form->get('nomArtisan')->getData();
             $prenom = $form->get('prenomArtisan')->getData();
             $login = substr($nom, 0, 1);
@@ -87,7 +88,7 @@ class GestionnaireController extends Controller {
             } else {
                 $this->addFlash(
                     'danger',
-                    'Une erreur est survenue.'
+                    'Erreur'
                 );
             }
             
@@ -129,7 +130,7 @@ class GestionnaireController extends Controller {
             }
         }
         $artisanRepo = $this->getDoctrine()->getManager()->getRepository('JmBatiInterimBundle:Artisan');
-        $listeArtisan = $artisanRepo->findAll();
+        $listeArtisan = $artisanRepo->findBy(array('isdeleted' => 0));
         return $this->render('@JmBatiInterim/Gestionnaire/supprimerArtisan.html.twig', array("artisan" => $listeArtisan));
     }
     

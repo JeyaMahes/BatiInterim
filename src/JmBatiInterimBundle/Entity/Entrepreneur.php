@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Entrepreneur
  *
  * @ORM\Table(name="Entrepreneur")
- * @ORM\Entity(repositoryClass="JmBatiInterimBundle\Repository\EntrepreneurRepository")
+ * @ORM\Entity
  */
 class Entrepreneur
 {
@@ -97,6 +97,13 @@ class Entrepreneur
      * @ORM\Column(name="premiereConnexion", type="boolean", nullable=false)
      */
     private $premiereconnexion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isDeleted", type="boolean", nullable=true)
+     */
+    private $isdeleted;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -386,6 +393,30 @@ class Entrepreneur
     public function getPremiereconnexion()
     {
         return $this->premiereconnexion;
+    }
+
+    /**
+     * Set isdeleted
+     *
+     * @param boolean $isdeleted
+     *
+     * @return Entrepreneur
+     */
+    public function setIsdeleted($isdeleted)
+    {
+        $this->isdeleted = $isdeleted;
+
+        return $this;
+    }
+
+    /**
+     * Get isdeleted
+     *
+     * @return boolean
+     */
+    public function getIsdeleted()
+    {
+        return $this->isdeleted;
     }
 
     /**

@@ -5,15 +5,8 @@ Supprimer artisan
 {% endblock %}
 {% block body %}
     <h1 class="title is-1 has-text-centered">Suppression d'artisans</h1>
-    <h2 class="subtitle is-4 has-text-centered">Veuillez effectuer selectionner un artisan à supprimer...</h2>
-    {% for label, flashes in app.session.flashbag.all %}
-        {% for flash in flashes %}
-            <div class="notification is-{{ label }}">
-                <button class="delete"></button>
-                {{ flash }}
-            </div>
-        {% endfor %}
-    {% endfor %}
+    
+    
     <table class="table is-fullwidth is-bordered is-striped is-narrow is-hoverable">
         <thead>
         <tr>
@@ -39,7 +32,12 @@ Supprimer artisan
       </tbody>
     </table>
     <br/>
-    <div>
-        <a class="button is-info is-outlined" href="{{ path( 'bat_interim_gestionnaire') }} ">Retour</a>
-    </div>
+    {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="notification is-{{ label }}">
+                            
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
 {% endblock %}

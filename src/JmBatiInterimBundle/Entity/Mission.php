@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Mission
  *
  * @ORM\Table(name="Mission", indexes={@ORM\Index(name="FK_Mission_Chantier", columns={"idChantier"}), @ORM\Index(name="FK_Mission_CorpsMetier", columns={"idCorpsMetier"})})
- * @ORM\Entity(repositoryClass="JmBatiInterimBundle\Repository\MissionRepository")
+ * @ORM\Entity
  */
 class Mission
 {

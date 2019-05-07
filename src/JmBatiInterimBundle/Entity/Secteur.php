@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Secteur
  *
  * @ORM\Table(name="Secteur")
- * @ORM\Entity(repositoryClass="JmBatiInterimBundle\Repository\SecteurRepository")
+ * @ORM\Entity
  */
 class Secteur
 {

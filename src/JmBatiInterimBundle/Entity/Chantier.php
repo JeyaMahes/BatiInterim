@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Chantier
  *
  * @ORM\Table(name="Chantier", indexes={@ORM\Index(name="FK_Chantier_ChefChantier", columns={"idChefChantier"})})
- * @ORM\Entity(repositoryClass="JmBatiInterimBundle\Repository\ChantierRepository")
+ * @ORM\Entity
  */
 class Chantier
 {

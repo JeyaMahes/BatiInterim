@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Conge
  *
  * @ORM\Table(name="Conge", indexes={@ORM\Index(name="FK_Conge_Artisan", columns={"idArtisan"})})
- * @ORM\Entity(repositoryClass="JmBatiInterimBundle\Repository\CongeRepository")
+ * @ORM\Entity
  */
 class Conge
 {
